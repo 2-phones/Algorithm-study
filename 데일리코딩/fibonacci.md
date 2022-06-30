@@ -69,7 +69,7 @@ function fibonacci(n){
 
 ---
 
-❗️ ### 레퍼런스코드
+### ❗️ 레퍼런스코드
 
 ```jsx
 
