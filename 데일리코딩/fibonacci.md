@@ -40,8 +40,8 @@ function fibonacci(n){
   if(n <= 1){
     return n;
   }
-  
-return fibonacci(n -2) + fibonacci(n - 1);
+
+    return fibonacci(n -2) + fibonacci(n - 1);
 }
 ```
 그냥 재귀함수를 사용을 했을더니 n값이 커지면 처리속도도 증가하여<Br>
@@ -57,7 +57,8 @@ function fibonacci(n){
     if(memo[n] !== undefined) return memo[n];
 
     memo[n] = fibonacci(n -2) + fibonacci(n - 1);
-return memo[n];
+    
+    return memo[n];
 }
 ```
 
