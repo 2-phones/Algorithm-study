@@ -54,13 +54,34 @@ function fibonacci(n){
     if(n <= 1){
         return n;
     }
-    if(memo[n] !== undefined) return memo[n];
+    if(memo[n] !== null) return memo[n];
 
     memo[n] = fibonacci(n -2) + fibonacci(n - 1);
-    
+
     return memo[n];
 }
 ```
 
-알고리즘 동적계획법 을 활용하여 이미 계산된 값은 다시 하지않도록<br>
-처리속도를 줄여 효율적으로 푸는 방법을 학습했다.
+처리속도를 줄여 효율적으로 푸는 방법을 학습했다.<br>
+메모이지, 동적계획법 을 사용했는데 그냥 재귀를 사용하면, n값의 수가 커지면 컴퓨터가 푸는시간이 매우 오래걸린다.<br> 그래서 겹치는 것을 줄이기 위하여 피보라는 저장공간에 할당시켜  겹치지 않는경우만 재귀를 돌리도록 하였다.
+
+```jsx
+
+ function fibonacci (n) {
+  const memo = [0, 1];
+  const aux = (n) => {
+    // 이미 해결한 적이 있으면, 메모해둔 정답을 리턴한다.
+    if (memo[n] !== undefined) return memo[n];
+    // 새롭게 풀어야하는 경우, 문제를 풀고 메모해둔다.
+    memo[n] = aux(n - 1) + aux(n - 2);
+    return memo[n];
+  };
+  return aux(n);
+};
+```
+
+레퍼런스 코드인데, 왜 함수안에 또 함수를 적어줬는지, 메모를 함수안에 선언 시켰는지 질문했다.<br>
+
+변수 메모는 함수호출시 실행되면 소멸되기 때문에 피보나치 밖에다가 선언하던가, 아니면 함수하나 더 작성하여 그함수를 재귀로 만들어 메모 변수를 재사용 할수 있게 만들었다고한다.<br>
+
+그리고 크루분이 null 보다는 undefined 사용 하기를 권장했다.
