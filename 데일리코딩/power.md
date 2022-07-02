@@ -35,3 +35,20 @@
 let output = power(3, 40);
 console.log(output); // --> 19334827
 ```
+
+### ✔️ 내가 작성한 코드
+
+
+```js
+function power(base, exponent) {
+  if( exponent === 0) return 1;
+  const val = power(base, Math.floor(exponent / 2) );
+  const result = val * val % 94906249
+
+  return exponent % 2 ? base * result % 94906249 : result; 
+  
+
+}
+
+```
+
