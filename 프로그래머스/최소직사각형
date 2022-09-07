@@ -1,0 +1,13 @@
+```js
+function solution(sizes) {
+    let large = [];
+    let small = [];
+    sizes.filter( (li) => {
+        li.sort( (a,b) => b - a);
+       large.push(Math.max(...li));
+        small.push(Math.min(...li));
+    });
+    return Math.max(...large) * Math.max(...small);
+}
+
+```
